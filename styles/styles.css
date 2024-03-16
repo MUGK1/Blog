@@ -1,0 +1,39 @@
+:root {
+    /* Primary colors */
+    --color-primary-text: #000000;
+    --color-background: #ffffff;
+    --color-secondary-text: #6B7280;
+    --color-primary-action: #0366D6;
+
+    /* Secondary colors */
+    --color-border: #D1D5DB;
+    --color-background-alt: #F3F4F6;
+    --color-placeholder: #9CA3AF;
+    --color-success: #10B981;
+    --color-error: #EF4444;
+
+    /* Font stacks */
+    --font-stack-primary: "Varela Round", sans-serif;
+
+    /* Font weights */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* Other sizes */
+    --font-size-normal: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-small: 0.875rem;
+
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+
+    /* Border radius */
+    --border-radius-small: 0.125rem;
+    --border-radius-normal: 0.25rem;
+    --border-radius-large: 0.5rem;
+}

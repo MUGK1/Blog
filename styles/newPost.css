@@ -1,0 +1,7 @@
+@import "styles.css";
+
+.font {
+    font-family: var(--font-stack-primary);
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+}
