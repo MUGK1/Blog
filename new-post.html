@@ -1,42 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/newPost.css">
     <link rel="stylesheet" href="./styles/css-reset.css" />
+    <link rel="stylesheet" href="./styles/newPost.css">
     <title>New Post</title>
 </head>
-<body>
-<div class="font">New Post Page</div>
-<header>
-    <nav>
-        <ul>
-            <li class="flex" id="nav">
-                <a href="home.html">Homepage</a>
-            </li>
-            <li class="flex" id="nav">
-                <a href="archive.html">Blog Archive</a>
-            </li>
-            <li class="flex" id="nav">
-                <a href="new-post.html">Create a new post</a>
-            </li>
-            <li class="flex" id="nav">
-                <a href="login.html">Login</a>
-            </li>
-        </ul>
-    </nav>
-</header>
 
-<footer>
-    <h1>Contact us</h1>
-    <ul>
-        <li><a href="mailto:220211227@psu.edu.sa,221110390@psu.edu.sa,221110083@psu.edu.sa">Email us!</a></li>
-        <li><a href="https://github.com/MUGK1/Blog"></a>Github</li>
-    </ul>
-</footer>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-bar">
+                <li class="flex" id="logo">
+                    <a href="\assets\logo.png" id="logo"></a>
+                </li>
+                <li class="flex" id="nav1">
+                    <a href="home.html" class="nav-link">Homepage</a>
+                </li>
+                <li class="flex" id="nav2">
+                    <a href="archive.html" class="nav-link">Blog Archive</a>
+                </li>
+                <li class="flex" id="nav3">
+                    <a href="new-post.html" class="nav-link">Post New Blog</a>
+                </li>
+                <li class="flex" id="nav4">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="font">Create New Post</h1>
+        <form action="/submit" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+            </div>
+
+            <div class="form-group">
+                <label for="subtitle">Subtitle</label>
+                <input type="text" id="subtitle" name="subtitle">
+            </div>
+
+            <div class="form-group">
+                <label for="author">Author Name</label>
+                <input type="text" id="author" name="author">
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date">
+            </div>
+
+            <div class="form-group">
+                <label for="content">Post Content</label>
+                <textarea id="content" name="content" rows="10"></textarea>
+            </div>
+
+            <button type="submit">Submit Post</button>
+        </form>
+    </main>
+
+    <footer>
+        <h1>Contact us</h1>
+        <ul>
+            <li><a href="mailto:220211227@psu.edu.sa,221110390@psu.edu.sa,221110083@psu.edu.sa">Email us!</a></li>
+            <li><a href="https://github.com/MUGK1/Blog"></a>Github</li>
+        </ul>
+    </footer>
 </body>
+
 </html>
