@@ -6,7 +6,16 @@
   font-weight: var(--font-weight-bold);
 }
 
+body {
+    font-family: var(--font-stack-primary);
+    background-color: var(--color-background);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
 main {
+    flex: 1;
     line-height: 1.6;
     color: #333;
     padding: 20px;
