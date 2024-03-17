@@ -1,7 +1,8 @@
 @import "styles.css";
 
-.font {
-    font-family: var(--font-stack-primary);
-    font-size: var(--font-size-large);
-    font-weight: var(--font-weight-bold);
+.section {
+    width: 100%;
+    height: 35vh;
+    background-color: var(--color-homeHero);
 }
+
