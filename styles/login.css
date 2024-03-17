@@ -1,7 +1,107 @@
 @import "styles.css";
 
-.font {
-    font-family: var(--font-stack-primary);
-    font-size: var(--font-size-large);
-    font-weight: var(--font-weight-bold);
+.bodyLayout {
+    background-color: var(--color-background);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.mainStyle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login {
+    width: 100%;
+    max-width: 40rem;
+    height: 40rem;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .login__topSection {
+        width: 70%;
+        text-align: center;
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 29px;
+            font-family: var(--font-stack-secondary);
+            font-weight: var(--font-extra-light);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--color-secondary-text);
+            font-family: var(--font-stack-primary);
+        }
+    }
+
+    .login__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 5rem 0;
+
+        label {
+            font-size: .8rem;
+            margin-bottom: 40px;
+            font-family: var(--font-stack-primary);
+            color: var(--color-primary-text);
+            font-weight: var(--font-extra-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+
+            input {
+                width: 100%;
+                padding: 10px;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+                border-radius: var(--border-radius-small);
+                margin-top: 10px;
+                text-align: center;
+                font-family: var(--font-stack-secondary);
+                font-size: .8rem;
+
+                &:focus {
+                    outline: none;
+                    border-bottom: 1px solid var(--color-primary-action);
+                }
+            }
+        }
+
+
+        button {
+            width: 30%;
+            padding: 10px;
+            border: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            background-color: var(--color-primary-text);
+            color: #fff;
+            font-family: var(--font-stack-secondary);
+            font-size: .8rem;
+            cursor: pointer;
+            transition: background-color .3s;
+
+            &:hover {
+                background-color: #0049b7;
+            }
+        }
+    }
 }

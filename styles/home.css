@@ -154,6 +154,16 @@ article > h1 {
 
 /*Responsive*/
 
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .post {
+        width: 90%;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         width: 90%;

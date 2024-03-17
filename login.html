@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="./styles/css-reset.css" />
     <title>Login Page</title>
 </head>
-<body>
-<div class="font">Login Page</div>
+<body class="bodyLayout">
 <header>
     <nav>
         <ul>
@@ -30,6 +29,27 @@
         </ul>
     </nav>
 </header>
+
+<main class="mainStyle">
+    <article>
+        <section class="login">
+            <div class="login__topSection">
+                <h1>Sign in with email</h1>
+                <p>Enter the email address associated with your account, and we’ll send a magic link to your inbox.</p>
+            </div>
+
+            <form action="#" method="post" class="login__form">
+                <label>
+                    <input type="email" name="Email" placeholder="Email" required />
+                </label>
+                <label>
+                    <input type="password" name="password" placeholder="Password" minlength="8" required />
+                </label>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </article>
+</main>
 
 <footer>
     <h1>Contact us</h1>
