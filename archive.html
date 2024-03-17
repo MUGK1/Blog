@@ -6,36 +6,105 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/archive.css">
     <link rel="stylesheet" href="./styles/css-reset.css" />
+    <link rel="stylesheet" href="./styles/archive.css">
     <title>Archive</title>
 </head>
 <body>
-<div class="font">Archive Page</div>
+
 <header>
     <nav>
-        <ul>
-            <li class="flex" id="nav">
-                <a href="home.html">Homepage</a>
+        <ul class="nav-bar">
+            <li class="flex" id="logo">
+                <a href="\assets\logo.png" id="logo"></a>
             </li>
-            <li class="flex" id="nav">
-                <a href="archive.html">Blog Archive</a>
+            <li class="flex" id="nav1">
+                <a href="home.html" class="nav-link">Homepage</a>
             </li>
-            <li class="flex" id="nav">
-                <a href="new-post.html">Create a new post</a>
+            <li class="flex" id="nav2">
+                <a href="archive.html" class="nav-link">Blog Archive</a>
             </li>
-            <li class="flex" id="nav">
-                <a href="login.html">Login</a>
+            <li class="flex" id="nav3">
+                <a href="new-post.html" class="nav-link">Post New Blog</a>
+            </li>
+            <li class="flex" id="nav4">
+                <a href="login.html" class="nav-link">Login</a>
             </li>
         </ul>
     </nav>
 </header>
-
+<section id="search-archive">
+    <article>
+        <form method="post">
+            <fieldset>
+                <legend>Blog Archive</legend>
+                <div>
+                    <label>Search Archive</label>
+                    <input type="text" name="blog-search"/>
+                </div>
+            </fieldset>
+        </form>
+    </article>
+</section>
+<section>
+    <article>
+        <h1>Search Results:</h1>
+        <table id="search-results-table">
+            <thead>
+                <tr>
+                    <th>Blog Author</th>
+                    <th>Blog Title</th>
+                    <th>Date Posted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="" class="author-link">Placeholder</a></td>
+                    <td><a href=""class="blog-link">Placeholder</a></td>
+                    <td>Placeholder</td>
+                </tr>
+                <tr>
+                    <td><a href="" class="author-link">Placeholder</a></td>
+                    <td><a href=""class="blog-link">Placeholder</a></td>
+                    <td>Placeholder</td>
+                </tr>
+                <tr>
+                    <td><a href="" class="author-link">Placeholder</a></td>
+                    <td><a href=""class="blog-link">Placeholder</a></td>
+                    <td>Placeholder</td>
+                </tr>
+                <tr>
+                    <td><a href="" class="author-link">Placeholder</a></td>
+                    <td><a href=""class="blog-link">Placeholder</a></td>
+                    <td>Placeholder</td>
+                </tr>
+                <tr>
+                    <td><a href="" class="author-link">Placeholder</a></td>
+                    <td><a href=""class="blog-link">Placeholder</a></td>
+                    <td>Placeholder</td>
+                </tr>
+                <tr>
+                    <td><a href="" class="author-link">Placeholder</a></td>
+                    <td><a href=""class="blog-link">Placeholder</a></td>
+                    <td>Placeholder</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <button type="button" class="page-flip-button">prev page</button>
+                        <button type="button" class="page-flip-button">next page</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </article>
+</section>
 <footer>
-    <h1>Contact us</h1>
+    <h1>Contact us:</h1>
     <ul>
-        <li><a href="mailto:220211227@psu.edu.sa,221110390@psu.edu.sa,221110083@psu.edu.sa">Email us!</a></li>
-        <li><a href="https://github.com/MUGK1/Blog"></a>Github</li>
+        <li><a href="mailto:220211227@psu.edu.sa,221110390@psu.edu.sa,221110083@psu.edu.sa" class="contact-link">Email us!</a></li>
+        <li><a href="https://github.com/MUGK1/Blog" class="contact-link">Github</a></li>
     </ul>
 </footer>
 </body>
