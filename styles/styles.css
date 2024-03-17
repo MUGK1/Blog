@@ -11,13 +11,20 @@
     --color-placeholder: #9CA3AF;
     --color-success: #10B981;
     --color-error: #EF4444;
+    --color-homeHero: #FFC017;
 
     /* Font stacks */
     --font-stack-primary: "Varela Round", sans-serif;
+    --font-stack-secondary: "Kanit", sans-serif;;
 
     /* Font weights */
+    --font-extra-light: 200;
+    --font-light: 300;
     --font-weight-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
     --font-weight-bold: 700;
+
 
     /* Other sizes */
     --font-size-normal: 1rem;
