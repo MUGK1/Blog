@@ -51,6 +51,7 @@ footer
     width: 95%;
     position: absolute;
     bottom:0.1em;
+    font-size: var(--font-size-small);
 }
 
 /*  universal css above (header/nav/footer only; may be merged early)
@@ -107,7 +108,7 @@ footer
     {
         padding: .5em;
         margin: .1em;
-        color: var(--color-primary-text);
+        color: var(--color-secondary-text);
         background-color: lightgray;
         border: none;
         border-radius: 10% / 10%;
