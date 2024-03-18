@@ -15,7 +15,7 @@
 
     /* Font stacks */
     --font-stack-primary: "Varela Round", sans-serif;
-    --font-stack-secondary: "Kanit", sans-serif;;
+    --font-stack-secondary: "Kanit", sans-serif;
 
     /* Font weights */
     --font-extra-light: 200;
@@ -43,4 +43,8 @@
     --border-radius-small: 0.125rem;
     --border-radius-normal: 0.25rem;
     --border-radius-large: 0.5rem;
+}
+
+a {
+    text-decoration: none;
 }
