@@ -19,20 +19,22 @@ header
     display:flex;
     flex-direction:table-column;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     width: 90%;
+    margin: 0 auto;
 }
 
 .logo-box
 {
     display:flex;
     flex-direction: row;
+    align-items: center;
 }
 
 #logo
 {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     padding: 0px;
     margin: 0px;
 }
