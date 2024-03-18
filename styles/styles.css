@@ -78,6 +78,7 @@ header
     align-items: center;
     width: 90%;
     margin: 0 auto;
+    list-style: none;
 }
 
 .logo-box
@@ -102,7 +103,43 @@ header
     max-width: 100%;
     height: 100%;
     justify-content: right;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 }
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: .4em;
+    margin: .1em;
+}
+
+.hamburger-menu span {
+    height: 2px;
+    background: var(--color-secondary-text);
+    margin-bottom: 5px;
+    width: 25px;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-bar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-bar.active {
+        display: flex;
+    }
+}
+
 
 #search,a.nav-link:link, a.nav-link:visited, a.contact-link:link, a.contact-link:visited
 {

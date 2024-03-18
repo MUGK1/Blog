@@ -14,43 +14,44 @@
     <title>Archive</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul class="header-bar">
-          <div class="logo-box">
-            <li class="flex">
-              <a href="home.html"
-                ><img src="./assets/logo.png" id="logo" alt="logo"
-              /></a>
-            </li>
-            <li>
-              <form method="post" class="flex" id="search-bar">
-                <fieldset>
-                  <div>
-                    <label id="search">Search Archive</label>
-                    <input type="text" name="blog-search" />
-                  </div>
-                </fieldset>
-              </form>
-            </li>
-          </div>
-          <div class="nav-bar">
-            <li class="flex" id="nav1">
-              <a href="home.html" class="nav-link">Homepage</a>
-            </li>
-            <li class="flex" id="nav2">
-              <a href="archive.html" class="nav-link">Archive</a>
-            </li>
-            <li class="flex" id="nav3">
-              <a href="new-post.html" class="nav-link">Post</a>
-            </li>
-            <li class="flex" id="nav4">
-              <a href="login.html" class="nav-link">Login</a>
-            </li>
-          </div>
-        </ul>
-      </nav>
-    </header>
+  <header>
+    <nav class="header-bar">
+      <ul>
+        <li class="logo-box">
+          <a href="home.html"><img src="./assets/logo.png" id="logo" alt="logo"/></a>
+          <form method="post" id="search-bar">
+            <fieldset>
+              <label id="search">
+                Search Archive
+                <input type="text" name="blog-search" />
+              </label>
+            </fieldset>
+          </form>
+        </li>
+      </ul>
+
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-bar">
+        <li class="flex" id="nav1">
+          <a href="home.html" class="nav-link">Homepage</a>
+        </li>
+        <li class="flex" id="nav2">
+          <a href="archive.html" class="nav-link">Archive</a>
+        </li>
+        <li class="flex" id="nav3">
+          <a href="new-post.html" class="nav-link">Post</a>
+        </li>
+        <li class="flex" id="nav4">
+          <a href="login.html" class="nav-link">Login</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
     <main>
       <article>
         <table id="search-results-table">
