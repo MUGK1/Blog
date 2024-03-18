@@ -29,6 +29,14 @@ header
     flex-direction: row;
 }
 
+#logo
+{
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    margin: 0px;
+}
+
 .nav-bar
 {
     display: flex;
