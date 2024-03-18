@@ -1,101 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/css-reset.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>New Post</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./styles/css-reset.css" />
-  <link rel="stylesheet" href="./styles/styles.css" />
-  <title>New Post</title>
-</head>
+  <body class="bodyPost">
+    <header>
+      <nav>
+        <ul class="header-bar">
+          <div class="logo-box">
+            <li class="flex">
+              <a href="home.html"
+                ><img src="./assets/logo.png" id="logo" alt="logo"
+              /></a>
+            </li>
+            <li>
+              <form method="post" class="flex" id="search-bar">
+                <fieldset>
+                  <div>
+                    <label id="search">Search Archive</label>
+                    <input type="text" name="blog-search" />
+                  </div>
+                </fieldset>
+              </form>
+            </li>
+          </div>
+          <div class="nav-bar">
+            <li class="flex" id="nav1">
+              <a href="home.html" class="nav-link">Homepage</a>
+            </li>
+            <li class="flex" id="nav2">
+              <a href="archive.html" class="nav-link">Archive</a>
+            </li>
+            <li class="flex" id="nav3">
+              <a href="new-post.html" class="nav-link">Post</a>
+            </li>
+            <li class="flex" id="nav4">
+              <a href="login.html" class="nav-link">Login</a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </header>
 
-<body class="bodyPost">
-  <header>
-    <nav>
-      <ul class="header-bar">
-        <div class="logo-box">
-          <li class="flex">
-            <a href="home.html"><img src="./assets/logo.png" id="logo" alt="logo" /></a>
-          </li>
-          <li>
-            <form method="post" class="flex" id="search-bar">
-              <fieldset>
-                <div>
-                  <label id="search">Search Archive</label>
-                  <input type="text" name="blog-search" />
-                </div>
-              </fieldset>
-            </form>
-          </li>
+    <main class="mainPost">
+      <h1 class="font">Create New Post</h1>
+      <form action="/submit" method="post">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required />
         </div>
-        <div class="nav-bar">
-          <li class="flex" id="nav1">
-            <a href="home.html" class="nav-link">Homepage</a>
-          </li>
-          <li class="flex" id="nav2">
-            <a href="archive.html" class="nav-link">Archive</a>
-          </li>
-          <li class="flex" id="nav3">
-            <a href="new-post.html" class="nav-link">Post</a>
-          </li>
-          <li class="flex" id="nav4">
-            <a href="login.html" class="nav-link">Login</a>
-          </li>
+
+        <div class="form-group">
+          <label for="subtitle">Subtitle</label>
+          <input type="text" id="subtitle" name="subtitle" required />
         </div>
+
+        <div class="form-group">
+          <label for="author">Author Name</label>
+          <input type="text" id="author" name="author" required />
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="content">Post Content</label>
+          <textarea id="content" name="content" rows="10" required></textarea>
+        </div>
+
+        <button type="submit">Submit Post</button>
+      </form>
+    </main>
+
+    <footer class="footer-bar">
+      <h1>Contact us:</h1>
+      <ul>
+        <li>
+          <a
+            href="mailto:220211227@psu.edu.sa,221110390@psu.edu.sa,221110083@psu.edu.sa"
+            class="contact-link"
+            >Email us!</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/MUGK1/Blog" class="contact-link"
+            >Github</a
+          >
+        </li>
       </ul>
-    </nav>
-  </header>
-
-  <main class="mainPost">
-    <h1 class="font">Create New Post</h1>
-    <form action="/submit" method="post">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" required />
-      </div>
-
-      <div class="form-group">
-        <label for="subtitle">Subtitle</label>
-        <input type="text" id="subtitle" name="subtitle" required />
-      </div>
-
-      <div class="form-group">
-        <label for="author">Author Name</label>
-        <input type="text" id="author" name="author" required />
-      </div>
-
-      <div class="form-group">
-        <label for="date">Date</label>
-        <input type="date" id="date" name="date" required />
-      </div>
-
-      <div class="form-group">
-        <label for="content">Post Content</label>
-        <textarea id="content" name="content" rows="10" required></textarea>
-      </div>
-
-      <button type="submit">Submit Post</button>
-    </form>
-  </main>
-
-  <footer class="footer-bar">
-    <h1>Contact us:</h1>
-    <ul>
-      <li>
-        <a href="mailto:220211227@psu.edu.sa,221110390@psu.edu.sa,221110083@psu.edu.sa" class="contact-link">Email
-          us!</a>
-      </li>
-      <li>
-        <a href="https://github.com/MUGK1/Blog" class="contact-link">Github</a>
-      </li>
-    </ul>
-    <p>All rights reserved.</p>
-  </footer>
-</body>
-
+      <p>All rights reserved.</p>
+    </footer>
+  </body>
 </html>
