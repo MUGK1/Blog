@@ -279,7 +279,7 @@ a.author-link:hover, a.blog-link:hover
 }
 
 
-.sectionContent {
+.section-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -346,13 +346,13 @@ article > h1 {
 
 
 
-    .post__left {
+    .post-left {
         width: 70%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
-        .post__left--blogger {
+        .post-left-blogger {
             font-size: .9rem;
             font-family: var(--font-stack-secondary);
             color: var(--color-secondary-text);
@@ -367,7 +367,7 @@ article > h1 {
         }
 
 
-        .post__left--description {
+        .post-left-description {
             font-size: .9rem;
             font-family: var(--font-stack-secondary);
             color: var(--color-secondary-text);
@@ -375,7 +375,7 @@ article > h1 {
         }
 
 
-        .post__left--info {
+        .post-left-info {
             display: flex;
             align-items: center;
             gap: .4rem;
@@ -396,7 +396,7 @@ article > h1 {
         }
     }
 
-    .post__right {
+    .post-right {
         width: 12rem;
         height: 10rem;
         background-color: var(--color-primary-action);
@@ -436,7 +436,7 @@ article > h1 {
         width: 90%;
     }
 
-    .sectionContent {
+    .section-content {
         align-items: center;
         h1 {
             font-size: 3rem;
@@ -470,7 +470,7 @@ article > h1 {
         padding: 1rem 0;
         border: 2px solid var(--color-primary-action);
 
-        .post__left {
+        .post-left {
             width: 90%;
             order: 2;
             margin-top: var(--space-4);
@@ -481,18 +481,18 @@ article > h1 {
                 font-size: 1.8rem;
             }
 
-            .post__left--description {
+            .post-left-description {
                 font-size: .8rem;
                 margin-top: var(--space-2);
             }
 
-            .post__left--info {
+            .post-left-info {
                 font-size: .8rem;
                 margin-top: var(--space-4);
             }
         }
 
-        .post__right {
+        .post-right {
             width: 90%;
             height: 8rem;
             font-size: 3rem;
@@ -503,7 +503,7 @@ article > h1 {
 
 /* Login Page Style */
 
-.mainStyle {
+.main-style {
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -522,7 +522,7 @@ article > h1 {
     align-items: center;
     justify-content: center;
 
-    .login__topSection {
+    .login-top-section {
         width: 70%;
         text-align: center;
 
@@ -541,7 +541,7 @@ article > h1 {
         }
     }
 
-    .login__form {
+    .login-form {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -609,13 +609,13 @@ article > h1 {
     font-weight: var(--font-weight-bold);
 }
 
-.bodyPost
+.body-post
 {
     font-family: var(--font-stack-primary);
     background-color: var(--color-background);
 }
 
-.mainPost {
+.main-post {
     line-height: 1.6;
     color: #333;
     padding: 20px;
@@ -658,7 +658,7 @@ label {
 
 /* Post Page */
 
-.postBody {
+.post-body {
     font-family: var(--font-stack-primary);
     background-color: var(--color-background);
     display: flex;
@@ -666,7 +666,7 @@ label {
     flex-direction: column;
 }
 
-.postMain {
+.post-main {
     flex: 1;
     line-height: 1.6;
     color: #333;
