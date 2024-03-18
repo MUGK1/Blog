@@ -14,16 +14,31 @@ header
     font-size: var(--font-size-large);
 }
 
+.header-bar
+{
+    display:flex;
+    flex-direction:table-column;
+    justify-content: space-between;
+    align-items: start;
+    width: 90%;
+}
+
+.logo-box
+{
+    display:flex;
+    flex-direction: row;
+}
+
 .nav-bar
 {
     display: flex;
     flex-direction: row;
     max-width: 100%;
     height: 100%;
-    justify-content: left;
+    justify-content: right;
 }
 
-a.nav-link:link, a.nav-link:visited, a.contact-link:link, a.contact-link:visited
+#search,a.nav-link:link, a.nav-link:visited, a.contact-link:link, a.contact-link:visited
 {
    color: var(--color-secondary-text);
    text-decoration: none;
@@ -35,7 +50,7 @@ a.nav-link:hover, a.contact-link:hover
    text-decoration: none;
 }
 
-#logo,#nav1,#nav2,#nav3, #nav4 
+#logo,#search-bar,#nav1,#nav2,#nav3, #nav4 
 {
     padding: .4em;
     margin: .1em;
@@ -48,10 +63,29 @@ footer
     border-top: .01em;
     border-style: solid;
     border-color: var(--color-border);
-    width: 95%;
+    width: 100%;
     position: absolute;
     bottom:0.1em;
     font-size: var(--font-size-small);
+}
+
+footer > p
+{
+    margin: 0 0 0 30%;
+}
+
+footer > h1
+{
+    margin: 0 2% 0 0;
+}
+
+.footer-bar
+{
+    display:flex;
+    flex-direction:table-column;
+    justify-content: left;
+    align-items: start;
+    width: 90%;
 }
 
 /*  universal css above (header/nav/footer only; may be merged early)
@@ -60,25 +94,31 @@ footer
 
     #search-archive
     {
-        padding: .5em .5em .5em 1em;
+        padding-top: .4em;
+        margin: .1em;
     }
 
     #search-results-table
     {
         size: 50%;
         border-collapse: collapse;
+        table-layout: auto;
         padding: 1em;
         margin: 0em 1em 1em 1em;
-        width: fit-content;
+        width: 80%;
+        margin: 0 auto;
         height: 80%;
     }
     
     th, td
     {
+        width:20%;
+        height: 20%;
         text-align: left;
-        padding: .5em;
-        margin: .5em;
+        padding: 1%;
+        margin: 1%;
         font-size: var(--font-size-small);
+        text-overflow:ellipsis;
     }
     
     th
