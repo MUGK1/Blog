@@ -1,112 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/css-reset.css" />
-    <link rel="stylesheet" href="./styles/archive.css">
+    <link rel="stylesheet" href="./styles/styles.css" />
     <title>Archive</title>
-</head>
-<body>
-
-<header>
-    <nav>
+  </head>
+  <body>
+    <header>
+      <nav>
         <ul class="header-bar">
-            <div class="logo-box">
+          <div class="logo-box">
             <li class="flex">
-                <a href="home.html" id="logo"><img src="./assets/logo.png" id="logo"/></a>
+              <a href="home.html"
+                ><img src="./assets/logo.png" id="logo" alt="logo"
+              /></a>
             </li>
             <li>
-                <form method="post" class="flex" id="search-bar">
-                    <fieldset>
-                        <div>
-                            <label id="search">Search Archive</label>
-                            <input type="text" name="blog-search"/>
-                        </div>
-                    </fieldset>
-                </form>
+              <form method="post" class="flex" id="search-bar">
+                <fieldset>
+                  <div>
+                    <label id="search">Search Archive</label>
+                    <input type="text" name="blog-search" />
+                  </div>
+                </fieldset>
+              </form>
             </li>
-            </div>
-            <div class="nav-bar">
+          </div>
+          <div class="nav-bar">
             <li class="flex" id="nav1">
-                <a href="home.html" class="nav-link">Homepage</a>
+              <a href="home.html" class="nav-link">Homepage</a>
             </li>
             <li class="flex" id="nav2">
-                <a href="archive.html" class="nav-link">Archive</a>
+              <a href="archive.html" class="nav-link">Archive</a>
             </li>
             <li class="flex" id="nav3">
-                <a href="new-post.html" class="nav-link">Post</a>
+              <a href="new-post.html" class="nav-link">Post</a>
             </li>
             <li class="flex" id="nav4">
-                <a href="login.html" class="nav-link">Login</a>
+              <a href="login.html" class="nav-link">Login</a>
             </li>
-            </div>
+          </div>
         </ul>
-    </nav>
-</header>
-<section>
-    <article>
+      </nav>
+    </header>
+    <main>
+      <article>
         <table id="search-results-table">
-            <thead>
-                <tr>
-                    <th>Blog Author</th>
-                    <th>Blog Title</th>
-                    <th>Date Posted</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="" class="author-link">Peter Diamandis</a></td>
-                    <td><a href="\post.html"class="blog-link">Will AI take over all coding?</a></td>
-                    <td>Jan 01, 2024</td>
-                </tr>
-                <tr>
-                    <td><a href="" class="author-link">Peter Diamandis</a></td>
-                    <td><a href="\post.html"class="blog-link">Will AI take over all coding?</a></td>
-                    <td>Jan 01, 2024</td>
-                </tr>
-                <tr>
-                    <td><a href="" class="author-link">Peter Diamandis</a></td>
-                    <td><a href="\post.html"class="blog-link">Will AI take over all coding?</a></td>
-                    <td>Jan 01, 2024</td>
-                </tr>
-                <tr>
-                    <td><a href="" class="author-link">Peter Diamandis</a></td>
-                    <td><a href="\post.html"class="blog-link">Will AI take over all coding?</a></td>
-                    <td>Jan 01, 2024</td>
-                </tr>
-                <tr>
-                    <td><a href="" class="author-link">Peter Diamandis</a></td>
-                    <td><a href="\post.html"class="blog-link">Will AI take over all coding?</a></td>
-                    <td>Jan 01, 2024</td>
-                </tr>
-                <tr>
-                    <td><a href="" class="author-link">Peter Diamandis</a></td>
-                    <td><a href="\post.html"class="blog-link">Will AI take over all coding?</a></td>
-                    <td>Jan 01, 2024</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>
-                        <button type="button" class="page-flip-button">prev page</button>
-                        <button type="button" class="page-flip-button">next page</button>
-                    </td>
-                </tr>
-            </tfoot>
+          <thead>
+            <tr>
+              <th>Blog Author</th>
+              <th>Blog Title</th>
+              <th>Date Posted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="" class="author-link">Peter Diamandis</a></td>
+              <td>
+                <a href="\post.html" class="blog-link"
+                  >Will AI take over all coding?</a
+                >
+              </td>
+              <td>Jan 01, 2024</td>
+            </tr>
+            <tr>
+              <td><a href="" class="author-link">Peter Diamandis</a></td>
+              <td>
+                <a href="\post.html" class="blog-link"
+                  >Will AI take over all coding?</a
+                >
+              </td>
+              <td>Jan 01, 2024</td>
+            </tr>
+            <tr>
+              <td><a href="" class="author-link">Peter Diamandis</a></td>
+              <td>
+                <a href="\post.html" class="blog-link"
+                  >Will AI take over all coding?</a
+                >
+              </td>
+              <td>Jan 01, 2024</td>
+            </tr>
+            <tr>
+              <td><a href="" class="author-link">Peter Diamandis</a></td>
+              <td>
+                <a href="\post.html" class="blog-link"
+                  >Will AI take over all coding?</a
+                >
+              </td>
+              <td>Jan 01, 2024</td>
+            </tr>
+            <tr>
+              <td><a href="" class="author-link">Peter Diamandis</a></td>
+              <td>
+                <a href="\post.html" class="blog-link"
+                  >Will AI take over all coding?</a
+                >
+              </td>
+              <td>Jan 01, 2024</td>
+            </tr>
+            <tr>
+              <td><a href="" class="author-link">Peter Diamandis</a></td>
+              <td>
+                <a href="\post.html" class="blog-link"
+                  >Will AI take over all coding?</a
+                >
+              </td>
+              <td>Jan 01, 2024</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <button type="button" class="page-flip-button">
+                  prev page
+                </button>
+                <button type="button" class="page-flip-button">
+                  next page
+                </button>
+              </td>
+            </tr>
+          </tfoot>
         </table>
-    </article>
-</section>
-<footer class="footer-bar">
-    <h1>Contact us:</h1>
-    <ul>
-        <li><a href="mailto:220211227@psu.edu.sa,221110390@psu.edu.sa,221110083@psu.edu.sa" class="contact-link">Email us!</a></li>
-        <li><a href="https://github.com/MUGK1/Blog" class="contact-link">Github</a></li>
-    </ul>
-    <p>All rights reserved.</p>
-</footer>
-</body>
+      </article>
+    </main>
+    <footer class="footer-bar">
+      <h1>Contact us:</h1>
+      <ul>
+        <li>
+          <a
+            href="mailto:220211227@psu.edu.sa,221110390@psu.edu.sa,221110083@psu.edu.sa"
+            class="contact-link"
+            >Email us!</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/MUGK1/Blog" class="contact-link"
+            >Github</a
+          >
+        </li>
+      </ul>
+      <p>All rights reserved.</p>
+    </footer>
+  </body>
 </html>
