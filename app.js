@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 // Create an express app
@@ -12,11 +13,11 @@ app.use(express.static("public"));
 
 // Serve index and login pages
 app.get("/", (request, response) => {
-  response.render("index");
+  response.render("index", { title: "Home" });
 });
 
 app.get("/login", (request, response) => {
-  response.render("login");
+  response.render("login", { title: "Login" });
 });
 
 // Add Post Routes handler
@@ -29,6 +30,14 @@ app.use((request, response) => {
 });
 
 // Start the server
-app.listen(process.env.PORT, "localhost", () => {
-  console.log(`Listening on port ${process.env.PORT}`);
-});
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then((result) => {
+    console.log("Connected to database...");
+    app.listen(process.env.PORT, "localhost", () => {
+      console.log(`Listening on port ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
