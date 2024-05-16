@@ -1,8 +1,12 @@
 <%- include('./partials/header.ejs') %>
 
+  <h3>
+    <%= message %>
+  </h3>
+
   <main class="main-post">
     <h1 class="font">Add New Post</h1>
-    <form action="/new-post" method="post">
+    <form action="/api/post" method="post">
       <div class="form-group">
         <label for="title">Title</label>
         <input type="text" id="title" name="title" required />

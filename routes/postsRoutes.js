@@ -10,7 +10,7 @@ router.get("/archive", postsController.open_archive);
 
 // write routes
 router.post(
-  "/new-post",
+  "/api/post",
   [
     check("title").notEmpty().isLength({ min: 5, max: 100 }),
     check("subtitle").notEmpty().isLength({ min: 5, max: 100 }),

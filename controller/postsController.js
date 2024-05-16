@@ -6,7 +6,7 @@ const open_post = (request, response) => {
 };
 
 const open_new_post = (request, response) => {
-  response.render("new-post", { title: "Add new post" });
+  response.render("new-post", { title: "Add new post", message: "" });
 };
 
 const open_archive = (request, response) => {
@@ -31,7 +31,7 @@ const add_post = (request, response) => {
     .save()
     .then((data) => {
       console.log(`Post saved to database: id -> ${data._id}`);
-      response.render("new-post", {
+      return response.render("new-post", {
         title: "Add new post",
         errors: [],
         message: "Post successfully published",
