@@ -6,7 +6,7 @@ const open_post = (request, response) => {
 };
 
 const open_new_post = (request, response) => {
-  response.render("post-editor", { title: "Add new post", message: "" });
+  response.render("post_editor", { title: "Add new post", message: "" });
 };
 
 const open_archive = (request, response) => {
