@@ -16,6 +16,16 @@ const open_archive = (request, response) => {
 // write functions
 const Post = require("../model/post");
 
+const get_post = (request, response) => {
+  Post.find({})
+    .then((data) => {
+      response.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 const add_post = (request, response) => {
   const errors = validationResult(request);
   if (!errors.isEmpty()) {
@@ -68,6 +78,19 @@ const update_post = (request, response) => {
     });
 };
 
+const delete_post = (request, response) => {
+  let id = request.params.id;
+
+  Post.findByIdAndDelete(id)
+    .then((result) => {
+      console.log(`Post deleted from database: id -> ${result._id}`);
+      response.redirect("/archive");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 // exports
 module.exports = {
   open_post,
@@ -75,4 +98,6 @@ module.exports = {
   open_archive,
   add_post,
   update_post,
+  get_post,
+  delete_post,
 };

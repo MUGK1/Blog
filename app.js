@@ -12,8 +12,15 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 // Serve index and login pages
-app.get("/", (request, response) => {
-  response.render("index", { title: "Home" });
+app.get("/", async (request, response) => {
+  try {
+    const posts = await fetch(`http://localhost:3000/api/post`);
+    const data = await posts.json();
+    response.render("index", { title: "Home", posts: data });
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    response.render("index", { title: "Home", posts: [] });
+  }
 });
 
 app.get("/login", (request, response) => {
