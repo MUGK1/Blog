@@ -5,7 +5,7 @@ const { check } = require("express-validator");
 
 // Open page routes
 router.get("/post", postsController.open_post);
-router.get("/post-editor", postsController.open_new_post);
+router.get("/post_editor", postsController.open_new_post);
 router.get("/archive", postsController.open_archive);
 
 // Read routes
