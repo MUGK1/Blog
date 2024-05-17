@@ -11,6 +11,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
+// Middleware logger
+app.use( (request, response, next) => {
+  console.log( `METHOD: ${request.method} -- PATH: ${request.path} -- IP: ${request.ip}`);
+  next();
+});
+
+
 // Serve index and login pages
 app.get("/", async (request, response) => {
   try {

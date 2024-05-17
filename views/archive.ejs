@@ -1,4 +1,4 @@
-<%- include('./partials/header.ejs') %>
+<%- include('./partials/header.ejs'); %>
 
   <main>
     <article>
@@ -8,77 +8,36 @@
             <th>Blog Author</th>
             <th>Blog Title</th>
             <th>Date Posted</th>
-            <th> Settings </th>
+            <th>Settings</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><a href="" class="author-link">Peter Diamandis</a></td>
-            <td>
-              <a href="\post" class="blog-link">Will AI take over all coding?</a>
-            </td>
-            <td>Jan 01, 2024</td>
-            <td> <button>Delete</button> </td>
-          </tr>
-          <tr>
-            <td><a href="" class="author-link">Peter Diamandis</a></td>
-            <td>
-              <a href="\post" class="blog-link">Will AI take over all coding?</a>
-            </td>
-            <td>Jan 01, 2024</td>
-            <td> <button>Delete</button> </td>
-          </tr>
-          <tr>
-            <td><a href="" class="author-link">Peter Diamandis</a></td>
-            <td>
-              <a href="\post" class="blog-link">Will AI take over all coding?</a>
-            </td>
-            <td>Jan 01, 2024</td>
-            <td> <button>Delete</button> </td>
-
-          </tr>
-          <tr>
-            <td><a href="" class="author-link">Peter Diamandis</a></td>
-            <td>
-              <a href="\post" class="blog-link">Will AI take over all coding?</a>
-            </td>
-            <td>Jan 01, 2024</td>
-            <td> <button>Delete</button> </td>
-
-          </tr>
-          <tr>
-            <td><a href="" class="author-link">Peter Diamandis</a></td>
-            <td>
-              <a href="\post" class="blog-link">Will AI take over all coding?</a>
-            </td>
-            <td>Jan 01, 2024</td>
-            <td> <button>Delete</button> </td>
-
-          </tr>
-          <tr>
-            <td><a href="" class="author-link">Peter Diamandis</a></td>
-            <td>
-              <a href="\post" class="blog-link">Will AI take over all coding?</a>
-            </td>
-            <td>Jan 01, 2024</td>
-            <td> <button>Delete</button> </td>
-
-          </tr>
+          <% if(posts.length > 0){ %>
+            <% posts.forEach((post) => { %>
+              <tr id="tr_<%= post.id %>">
+                <td><%= post.author %></td>
+                <td><%= post.title %></td>
+                <td><%= new Date(post.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric', month: 'long', day: 'numeric'
+                }) %></td>
+                <td> <button class="archive-button" id="delete-button">Delete</button> </td>
+              </tr>
+            <% })} %>
         </tbody>
         <tfoot>
           <tr>
             <td>
-              <button type="button" class="page-flip-button">
-                prev page
-              </button>
-              <button type="button" class="page-flip-button">
-                next page
-              </button>
+              <form action="/api/getSearchTable" method="get">
+                <fieldset>
+                  <legend>Search for Blogs:</legend>
+                  <input type="text" name="searchInput" id="search-bar" placeholder="Enter title or author..">
+                  <button type="submit" class="archive-button" form="search-bar" value="">Search</button>
+                </fieldset>
+              </form>
             </td>
           </tr>
         </tfoot>
       </table>
     </article>
   </main>
-
-  <%- include('./partials/footer.ejs') %>
+  <%- include('./partials/footer.ejs'); %>

@@ -6,11 +6,18 @@ const open_post = (request, response) => {
 };
 
 const open_new_post = (request, response) => {
-  response.render("post-editor", { title: "Add new post", message: "" });
+  response.render("post_editor", { title: "Add new post", message: "" });
 };
 
-const open_archive = (request, response) => {
-  response.render("archive", { title: "Archive" });
+const open_archive = async (request, response) => {
+  try {
+  const posts = await fetch(`http://localhost:3000/api/post`);
+  const data = await posts.json();
+  response.render("archive", { title: "Archive", posts: data});
+  } catch {
+    console.error("error fetching posts")
+    response.render("Archive", { title: "Archive", posts: [] });
+  }
 };
 
 // write functions
@@ -91,6 +98,32 @@ const delete_post = (request, response) => {
     });
 };
 
+// read functions
+const get_post_by_id = (request, response) => {
+  Post.findById(params.body.id)
+  .then((data) => {
+    response.send(data);
+  })
+  .catch((error) => { console.log(error) });
+};
+
+const find_posts = (request, response) => {
+  let input = request.query.searchInput;
+  let searchInputRegex =  (input.length > 0)? new RegExp(input, 'i') : null;
+  let search= {};
+  if (searchInputRegex != null) {
+      search = { $or: [
+          {'title': {"$regex": searchInputRegex}},
+          {'author': {"$regex": searchInputRegex}}
+      ]};
+  } else { response.status(204).end(); }
+  Post.find(search)
+  .then((data) => {
+          response.render('archive', {title: "Search Posts", posts:data});
+  })
+  .catch((err) => {console.log(err)});
+};
+
 // exports
 module.exports = {
   open_post,
@@ -100,4 +133,6 @@ module.exports = {
   update_post,
   get_post,
   delete_post,
+  get_post_by_id,
+  find_posts
 };

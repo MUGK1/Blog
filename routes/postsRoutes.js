@@ -36,6 +36,10 @@ router.put(
   postsController.update_post,
 );
 
+router.get(
+  "/api/getSearchTable", postsController.find_posts,
+);
+
 router.delete("/api/post/:id", postsController.delete_post);
 
 module.exports = router;

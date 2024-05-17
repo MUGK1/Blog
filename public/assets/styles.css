@@ -153,11 +153,21 @@ a.nav-link:hover, a.contact-link:hover
     text-decoration: none;
 }
 
-#logo,#search-bar,#nav1,#nav2,#nav3, #nav4
+#logo,#nav1,#nav2,#nav3, #nav4
 {
     padding: .4em;
     margin: .1em;
     border: transparent 1px;
+}
+
+#search-bar {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: transparent 1px;
+    border-radius: 25px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 footer
@@ -231,7 +241,7 @@ th
 
 tr:nth-child(2n)
 {
-    background-color: lightgray;
+    background-color:lightgray
 }
 
 a.author-link:link, a.author-link:visited, a.blog-link:link, a.blog-link:visited
@@ -246,18 +256,26 @@ a.author-link:hover, a.blog-link:hover
     text-decoration: none;
 }
 
-.page-flip-button
+.archive-button
 {
     padding: .5em;
     margin: .1em;
-    color: var(--color-secondary-text);
-    background-color: lightgray;
+    color: var(--color-primary-text);
+    background-color:silver;
     border: none;
     border-radius: 10% / 10%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
 }
-.page-flip-button:hover
+.archive-button:hover
 {
-    color: var(--color-primary-action);
+    color:white;
+    background-color: var(--color-primary-action);
+}
+
+#delete-button:hover
+{
+    background-color:#EF4444;
 }
 
 
