@@ -1,12 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const postsController = require("../controller/postsController");
+const authMiddleware = require("../middleware/auth");
 const { check } = require("express-validator");
 
 // Open page routes
-router.get("/post", postsController.open_post);
-router.get("/post-editor", postsController.open_new_post);
-router.get("/archive", postsController.open_archive);
+router.get("/post", authMiddleware.isAuth, postsController.open_post);
+router.get(
+  "/post-editor",
+  authMiddleware.isAuth,
+  postsController.open_new_post
+);
+router.get("/archive", authMiddleware.isAuth, postsController.open_archive);
 
 // Read routes
 router.get("/api/post", postsController.get_post);
