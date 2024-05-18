@@ -67,13 +67,13 @@ const post_login = async (request, response) => {
 };
 
 const post_register = async (request, response) => {
-  const { name, email, password } = req.body;
+  const { name, email, password } = request.body;
 
   let user = await User.findOne({ email: email });
 
   if (user) {
     req.session.error = "User already exists";
-    return res.redirect("/register");
+    return response.redirect("/register");
   }
 
   const hashPsw = await bcrypt.hash(password, 12);
@@ -85,7 +85,8 @@ const post_register = async (request, response) => {
   });
 
   await user.save();
-  res.redirect("/login");
+  req.session.error = "User registered successfully";
+  response.redirect("/login");
 };
 
 const get_logout = (request, response) => {
