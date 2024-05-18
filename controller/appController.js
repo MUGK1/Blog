@@ -73,7 +73,7 @@ const post_register = async (request, response) => {
 
   if (user) {
     request.session.error = "User already exists";
-    return response.redirect("/register");
+    return response.redirect("register");
   }
 
   const hashPsw = await bcrypt.hash(password, 12);
