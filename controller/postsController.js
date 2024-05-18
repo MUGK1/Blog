@@ -10,6 +10,7 @@ const open_new_post = (request, response) => {
     title: "Add new post",
     isAuth: request.session.isAuth,
     message: "",
+    errors: [],
   });
 };
 
