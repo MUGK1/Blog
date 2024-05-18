@@ -114,7 +114,11 @@ const find_posts = (request, response) => {
   }
   Post.find(search)
     .then((data) => {
-      response.render("archive", { title: "Search Posts", posts: data });
+      response.render("archive", {
+        title: "Search Posts",
+        isAuth: request.session.isAuth,
+        posts: data,
+      });
     })
     .catch((err) => {
       console.log(err);

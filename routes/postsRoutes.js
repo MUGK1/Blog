@@ -9,7 +9,7 @@ router.get("/post", authMiddleware.isAuth, postsController.open_post);
 router.get(
   "/post-editor",
   authMiddleware.isAuth,
-  postsController.open_new_post
+  postsController.open_new_post,
 );
 router.get("/archive", authMiddleware.isAuth, postsController.open_archive);
 
@@ -23,7 +23,7 @@ router.post(
     check("publishedAt").notEmpty().isDate(),
     check("content").notEmpty().isLength({ min: 100, max: 2000 }),
   ],
-  postsController.add_post
+  postsController.add_post,
 );
 
 router.delete("/api/post/:id", postsController.delete_post);
@@ -31,6 +31,10 @@ router.delete("/api/post/:id", postsController.delete_post);
 // read routes
 router.get("/api/post", postsController.get_post);
 
-router.get("/api/getSearchTable", postsController.find_posts);
+router.get(
+  "/api/getSearchTable",
+  authMiddleware.isAuth,
+  postsController.find_posts,
+);
 
 module.exports = router;
