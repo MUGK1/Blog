@@ -6,16 +6,16 @@ const open_post = (request, response) => {
 };
 
 const open_new_post = (request, response) => {
-  response.render("post_editor", { title: "Add new post", message: "" });
+  response.render("post-editor", { title: "Add new post", message: "" });
 };
 
 const open_archive = async (request, response) => {
   try {
-  const posts = await fetch(`http://localhost:3000/api/post`);
-  const data = await posts.json();
-  response.render("archive", { title: "Archive", posts: data});
+    const posts = await fetch(`http://localhost:3000/api/post`);
+    const data = await posts.json();
+    response.render("archive", { title: "Archive", posts: data });
   } catch {
-    console.error("error fetching posts")
+    console.error("error fetching posts");
     response.render("Archive", { title: "Archive", posts: [] });
   }
 };
@@ -36,7 +36,7 @@ const get_post = (request, response) => {
 const add_post = (request, response) => {
   const errors = validationResult(request);
   if (!errors.isEmpty()) {
-    return response.render("post_editor", {
+    return response.render("post-editor", {
       title: "Add new post",
       errors: errors.array(),
       message: "",
@@ -48,7 +48,7 @@ const add_post = (request, response) => {
     .save()
     .then((data) => {
       console.log(`Post saved to database: id -> ${data._id}`);
-      return response.render("post_editor", {
+      return response.render("post-editor", {
         title: "Add new post",
         errors: [],
         message: "Post successfully published",
@@ -62,7 +62,7 @@ const add_post = (request, response) => {
 const update_post = (request, response) => {
   const errors = validationResult(request);
   if (!errors.isEmpty()) {
-    return response.render("post_editor", {
+    return response.render("post-editor", {
       title: "Update Post",
       errors: errors.array(),
       message: "",
@@ -74,7 +74,7 @@ const update_post = (request, response) => {
     .save()
     .then((data) => {
       console.log(`Post saved to database: id -> ${data._id}`);
-      return response.render("post_editor", {
+      return response.render("post-editor", {
         title: "Update Post",
         errors: [],
         message: "Post successfully published",
@@ -101,27 +101,35 @@ const delete_post = (request, response) => {
 // read functions
 const get_post_by_id = (request, response) => {
   Post.findById(params.body.id)
-  .then((data) => {
-    response.send(data);
-  })
-  .catch((error) => { console.log(error) });
+    .then((data) => {
+      response.send(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 const find_posts = (request, response) => {
   let input = request.query.searchInput;
-  let searchInputRegex =  (input.length > 0)? new RegExp(input, 'i') : null;
-  let search= {};
+  let searchInputRegex = input.length > 0 ? new RegExp(input, "i") : null;
+  let search = {};
   if (searchInputRegex != null) {
-      search = { $or: [
-          {'title': {"$regex": searchInputRegex}},
-          {'author': {"$regex": searchInputRegex}}
-      ]};
-  } else { response.status(204).end(); }
+    search = {
+      $or: [
+        { title: { $regex: searchInputRegex } },
+        { author: { $regex: searchInputRegex } },
+      ],
+    };
+  } else {
+    response.status(204).end();
+  }
   Post.find(search)
-  .then((data) => {
-          response.render('archive', {title: "Search Posts", posts:data});
-  })
-  .catch((err) => {console.log(err)});
+    .then((data) => {
+      response.render("archive", { title: "Search Posts", posts: data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 // exports
@@ -134,5 +142,5 @@ module.exports = {
   get_post,
   delete_post,
   get_post_by_id,
-  find_posts
+  find_posts,
 };

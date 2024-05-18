@@ -5,7 +5,7 @@ const { check } = require("express-validator");
 
 // Open page routes
 router.get("/post", postsController.open_post);
-router.get("/post_editor", postsController.open_new_post);
+router.get("/post-editor", postsController.open_new_post);
 router.get("/archive", postsController.open_archive);
 
 // Read routes
@@ -21,7 +21,7 @@ router.post(
     check("publishedAt").notEmpty().isDate(),
     check("content").notEmpty().isLength({ min: 100, max: 2000 }),
   ],
-  postsController.add_post,
+  postsController.add_post
 );
 
 router.put(
@@ -33,12 +33,10 @@ router.put(
     check("publishedAt").notEmpty().isDate(),
     check("content").notEmpty().isLength({ min: 100, max: 2000 }),
   ],
-  postsController.update_post,
+  postsController.update_post
 );
 
-router.get(
-  "/api/getSearchTable", postsController.find_posts,
-);
+router.get("/api/getSearchTable", postsController.find_posts);
 
 router.delete("/api/post/:id", postsController.delete_post);
 
