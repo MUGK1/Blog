@@ -3,7 +3,14 @@
 
 
   <main>
-    <article>
+    <article class="article">
+      <form action="/api/getSearchTable" id="search-bar" method="get">
+        <fieldset class="search-archive">
+          <p>Search for Blogs:</p>
+          <input type="text" name="searchInput" id="search" placeholder="Enter title or author..">
+          <button type="submit" class="archive-button" form="search-bar" value="">Search</button>
+        </fieldset>
+      </form>
       <table id="search-results-table">
         <thead>
           <tr>
@@ -32,17 +39,7 @@
               <% })} %>
         </tbody>
         <tfoot>
-          <tr>
-            <td>
-              <form action="/api/getSearchTable" id="search-bar" method="get">
-                <fieldset>
-                  <legend>Search for Blogs:</legend>
-                  <input type="text" name="searchInput" id="search" placeholder="Enter title or author..">
-                  <button type="submit" class="archive-button" form="search-bar" value="">Search</button>
-                </fieldset>
-              </form>
-            </td>
-          </tr>
+
         </tfoot>
       </table>
     </article>

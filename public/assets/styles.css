@@ -160,7 +160,6 @@ a.contact-link:hover {
 
 #search {
   width: 300px;
-  margin: 10px;
   padding: 10px;
   border: transparent 1px;
   border-radius: 25px;
@@ -200,7 +199,29 @@ a {
 
 #search-archive {
   padding-top: 0.4em;
-  margin: 0.1em;
+  /*margin: 0.1em;*/
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#search-bar {
+  border: transparent 1px;
+  border-radius: 25px;
+  font-size: 16px;
+  width: 50%;
+  margin-top: 3rem;
+}
+
+.search-archive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
 }
 
 #search-results-table {
@@ -498,6 +519,11 @@ article > h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.SignUp {
+  padding: 1rem !important;
+  margin-top: 10px;
 }
 
 .login {

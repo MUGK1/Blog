@@ -6,6 +6,7 @@ function deletePost(postId) {
       .then((response) => {
         if (response.ok) {
           alert("Post deleted successfully.");
+          window.location.href = "/archive";
         } else {
           alert("Failed to delete the post.");
         }

@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs') %>
+
+<main class="main-style">
+    <article>
+        <section class="login">
+            <div class="login-top-section">
+                <h1>Sign Up with Us</h1>
+                <p>
+                    be a part of our community and share your thoughts with the world.
+                </p>
+            </div>
+
+            <form action="/api/register" method="post" class="login-form SignUp">
+                <label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required />
+                </label>
+                <label>
+                    <input type="email" id="email" name="email" placeholder="Email" required />
+                </label>
+                <label>
+                    <input type="password" id="password" name="password" placeholder="Password" minlength="8" required />
+                </label>
+                <button type="submit">Sign Up</button>
+                <a href="/login" style="margin: 1rem">Already Have an Account ?</a>
+            </form>
+        </section>
+    </article>
+</main>
+
+<%- include('./partials/footer.ejs'); %>
