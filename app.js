@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 const mongoose = require("mongoose");
+const MongoDBStore = require("connect-mongodb-session")(session);
 require("dotenv").config();
 
 // Create an express app
@@ -11,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-// Middleware logger
+// Logger Middleware
 app.use((request, response, next) => {
   console.log(
     `METHOD: ${request.method} -- PATH: ${request.path} -- IP: ${request.ip}`
@@ -19,21 +21,31 @@ app.use((request, response, next) => {
   next();
 });
 
-// Serve index and login pages
-app.get("/", async (request, response) => {
-  try {
-    const posts = await fetch(`http://localhost:3000/api/post`);
-    const data = await posts.json();
-    response.render("index", { title: "Home", posts: data });
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    response.render("index", { title: "Home", posts: [] });
-  }
+// Auth Middlewares
+let sessionStore = new MongoDBStore({
+  uri: process.env.MONGO_URI,
+  collection: "mySessions",
 });
 
-app.get("/login", (request, response) => {
-  response.render("login", { title: "Login" });
+sessionStore.on("error", function (error) {
+  console.log(error);
 });
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+    },
+    saveUninitialized: true,
+    resave: true,
+    store: sessionStore,
+  })
+);
+
+// Serve index and login pages
+const appRoutes = require("./routes/appRoutes");
+app.use("/", appRoutes);
 
 // Add Post Routes handler
 const postsRoutes = require("./routes/postsRoutes");
@@ -41,7 +53,9 @@ app.use("/", postsRoutes);
 
 // Serve 404 page if no corresponding route
 app.use((request, response) => {
-  response.status(400).render("404", { title: "404" });
+  response
+    .status(400)
+    .render("404", { title: "404", isAuth: request.session.isAuth });
 });
 
 // Start the server

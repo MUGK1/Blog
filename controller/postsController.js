@@ -2,18 +2,26 @@ const { validationResult } = require("express-validator");
 
 // Open web pages routes
 const open_post = (request, response) => {
-  response.render("post", { title: "Post" });
+  response.render("post", { title: "Post", isAuth: request.session.isAuth });
 };
 
 const open_new_post = (request, response) => {
-  response.render("post-editor", { title: "Add new post", message: "" });
+  response.render("post-editor", {
+    title: "Add new post",
+    isAuth: request.session.isAuth,
+    message: "",
+  });
 };
 
 const open_archive = async (request, response) => {
   try {
     const posts = await fetch(`http://localhost:3000/api/post`);
     const data = await posts.json();
-    response.render("archive", { title: "Archive", posts: data });
+    response.render("archive", {
+      title: "Archive",
+      isAuth: request.session.isAuth,
+      posts: data,
+    });
   } catch {
     console.error("error fetching posts");
     response.render("Archive", { title: "Archive", posts: [] });
@@ -23,21 +31,12 @@ const open_archive = async (request, response) => {
 // write functions
 const Post = require("../model/post");
 
-const get_post = (request, response) => {
-  Post.find({})
-    .then((data) => {
-      response.send(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 const add_post = (request, response) => {
   const errors = validationResult(request);
   if (!errors.isEmpty()) {
     return response.render("post-editor", {
       title: "Add new post",
+      isAuth: request.session.isAuth,
       errors: errors.array(),
       message: "",
     });
@@ -50,32 +49,7 @@ const add_post = (request, response) => {
       console.log(`Post saved to database: id -> ${data._id}`);
       return response.render("post-editor", {
         title: "Add new post",
-        errors: [],
-        message: "Post successfully published",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-const update_post = (request, response) => {
-  const errors = validationResult(request);
-  if (!errors.isEmpty()) {
-    return response.render("post-editor", {
-      title: "Update Post",
-      errors: errors.array(),
-      message: "",
-    });
-  }
-
-  let post = new Post(request.body);
-  post
-    .save()
-    .then((data) => {
-      console.log(`Post saved to database: id -> ${data._id}`);
-      return response.render("post-editor", {
-        title: "Update Post",
+        isAuth: request.session.isAuth,
         errors: [],
         message: "Post successfully published",
       });
@@ -104,6 +78,16 @@ const delete_post = (request, response) => {
 };
 
 // read functions
+const get_post = (request, response) => {
+  Post.find({})
+    .then((data) => {
+      response.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 const get_post_by_id = (request, response) => {
   Post.findById(params.body.id)
     .then((data) => {
@@ -143,7 +127,6 @@ module.exports = {
   open_new_post,
   open_archive,
   add_post,
-  update_post,
   get_post,
   delete_post,
   get_post_by_id,
