@@ -5,13 +5,18 @@ const authMiddleware = require("../middleware/auth");
 const { check } = require("express-validator");
 
 // Open page routes
-router.get("/post", authMiddleware.isAuth, postsController.open_post);
-router.get(
+  router.get(
   "/post-editor",
   authMiddleware.isAuth,
   postsController.open_new_post,
 );
-router.get("/archive", authMiddleware.isAuth, postsController.open_archive);
+
+router.get("/post/:id", authMiddleware.isAuth, postsController.view_post);
+
+router.get(
+  "/archive",
+  authMiddleware.isAuth,
+  postsController.open_archive);
 
 // write routes
 router.post(

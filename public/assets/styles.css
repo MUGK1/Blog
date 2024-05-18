@@ -636,6 +636,10 @@ article > h1 {
   background-color: var(--color-background);
 }
 
+.user-post {
+  width: 90%;
+}
+
 .main-post {
   line-height: 1.6;
   color: #333;
