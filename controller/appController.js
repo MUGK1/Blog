@@ -72,7 +72,7 @@ const post_register = async (request, response) => {
   let user = await User.findOne({ email: email });
 
   if (user) {
-    req.session.error = "User already exists";
+    request.session.error = "User already exists";
     return response.redirect("/register");
   }
 
@@ -85,7 +85,7 @@ const post_register = async (request, response) => {
   });
 
   await user.save();
-  req.session.error = "User registered successfully";
+  request.session.error = "User registered successfully";
   response.redirect("/login");
 };
 
