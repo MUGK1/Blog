@@ -59,7 +59,7 @@ const add_post = (request, response) => {
     });
 };
 
-const delete_post = (request, response) => {
+const delete_post = async (request, response) => {
   let id = request.params.id;
 
   Post.findByIdAndDelete(id)
