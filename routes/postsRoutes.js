@@ -26,18 +26,6 @@ router.post(
   postsController.add_post
 );
 
-router.put(
-  "/api/post",
-  [
-    check("title").notEmpty().isLength({ min: 5, max: 100 }),
-    check("subtitle").notEmpty().isLength({ min: 5, max: 100 }),
-    check("author").notEmpty().isLength({ min: 5, max: 50 }),
-    check("publishedAt").notEmpty().isDate(),
-    check("content").notEmpty().isLength({ min: 100, max: 2000 }),
-  ],
-  postsController.update_post
-);
-
 router.delete("/api/post/:id", postsController.delete_post);
 
 // read routes

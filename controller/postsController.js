@@ -59,34 +59,6 @@ const add_post = (request, response) => {
     });
 };
 
-const update_post = (request, response) => {
-  const errors = validationResult(request);
-  if (!errors.isEmpty()) {
-    return response.render("post-editor", {
-      title: "Update Post",
-      isAuth: request.session.isAuth,
-      errors: errors.array(),
-      message: "",
-    });
-  }
-
-  let post = new Post(request.body);
-  post
-    .save()
-    .then((data) => {
-      console.log(`Post saved to database: id -> ${data._id}`);
-      return response.render("post-editor", {
-        title: "Update Post",
-        isAuth: request.session.isAuth,
-        errors: [],
-        message: "Post successfully published",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 const delete_post = (request, response) => {
   let id = request.params.id;
 
@@ -150,7 +122,6 @@ module.exports = {
   open_new_post,
   open_archive,
   add_post,
-  update_post,
   get_post,
   delete_post,
   get_post_by_id,
