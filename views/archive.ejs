@@ -1,5 +1,7 @@
 <%- include('./partials/header.ejs'); %>
 
+
+
   <main>
     <article>
       <table id="search-results-table">
@@ -25,7 +27,7 @@
                   <%= new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric' , month: 'long' ,
                     day: 'numeric' }) %>
                 </td>
-                <td> <button class="archive-button" id="delete-button">Delete</button> </td>
+                <td> <button class="archive-button" data-id="<%= post._id %>" onclick="deletePost('<%= post._id %>')" id="delete-button">Delete</button> </td>
               </tr>
               <% })} %>
         </tbody>
@@ -45,4 +47,7 @@
       </table>
     </article>
   </main>
+
+<script src="/js/post.js"></script>
+
   <%- include('./partials/footer.ejs'); %>
