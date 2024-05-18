@@ -31,6 +31,16 @@ const open_login = async (request, response) => {
   });
 };
 
+const open_register = async (request, response) => {
+  const error = request.session.error;
+  request.session.error = undefined;
+  response.render("register", {
+    title: "Registeration",
+    isAuth: request.session.isAuth,
+    message: error,
+  });
+};
+
 // Auth endpoints
 const post_login = async (request, response) => {
   const { email, password } = request.body;
@@ -56,6 +66,28 @@ const post_login = async (request, response) => {
   response.redirect("/");
 };
 
+const post_register = async (request, response) => {
+  const { name, email, password } = req.body;
+
+  let user = await User.findOne({ email: email });
+
+  if (user) {
+    req.session.error = "User already exists";
+    return res.redirect("/register");
+  }
+
+  const hashPsw = await bcrypt.hash(password, 12);
+
+  user = new User({
+    name: name,
+    email: email,
+    password: hashPsw,
+  });
+
+  await user.save();
+  res.redirect("/login");
+};
+
 const get_logout = (request, response) => {
   request.session.destroy((err) => {
     if (err) throw err;
@@ -67,5 +99,7 @@ module.exports = {
   open_index,
   open_login,
   post_login,
+  open_register,
+  post_register,
   get_logout,
 };
