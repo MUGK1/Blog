@@ -12,17 +12,22 @@
           </tr>
         </thead>
         <tbody>
-          <% if(posts.length > 0){ %>
-            <% posts.forEach((post) => { %>
+          <% if(posts.length> 0){ %>
+            <% posts.forEach((post)=> { %>
               <tr id="tr_<%= post.id %>">
-                <td><%= post.author %></td>
-                <td><%= post.title %></td>
-                <td><%= new Date(post.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric', month: 'long', day: 'numeric'
-                }) %></td>
+                <td>
+                  <%= post.author %>
+                </td>
+                <td>
+                  <%= post.title %>
+                </td>
+                <td>
+                  <%= new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric' , month: 'long' ,
+                    day: 'numeric' }) %>
+                </td>
                 <td> <button class="archive-button" id="delete-button">Delete</button> </td>
               </tr>
-            <% })} %>
+              <% })} %>
         </tbody>
         <tfoot>
           <tr>

@@ -16,31 +16,37 @@
 
       <% if(posts) { %>
 
-      <% posts.forEach((post, i) => { %>
-      <a href="/<%= post._id %>" class="post">
-        <section class="post-left">
-          <div>
-            <p class="post-left-blogger"> <%= post.author %> </p>
-            <h2><%= post.title %></h2>
-          </div>
+        <% posts.forEach((post, i)=> { %>
+          <a href="/post/<%= post._id %>" class="post">
+            <section class="post-left">
+              <div>
+                <p class="post-left-blogger">
+                  <%= post.author %>
+                </p>
+                <h2>
+                  <%= post.title %>
+                </h2>
+              </div>
 
-          <p class="post-left-description">
-            <%= post.subtitle.length > 50 ? post.subtitle.substring(0, 50) + '...' : post.subtitle %>
-          </p>
-          <div class="post-left-info">
-            <p> <%= new Date(post.publishedAt).toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric'
-              }) %> </p>
-            <span class="dot"></span>
-            <p>10 min read</p>
-          </div>
-        </section>
-        <section class="post-right">
-          <h2>P<%= i+1 %></h2>
-        </section>
-      </a>
-        <% }) %>
-        <% } %>
+              <p class="post-left-description">
+                <%= post.subtitle.length> 50 ? post.subtitle.substring(0, 50) + '...' : post.subtitle %>
+              </p>
+              <div class="post-left-info">
+                <p>
+                  <%= new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric' , month: 'long' ,
+                    day: 'numeric' }) %>
+                </p>
+                <span class="dot"></span>
+                <p>10 min read</p>
+              </div>
+            </section>
+            <section class="post-right">
+              <h2>P<%= i+1 %>
+              </h2>
+            </section>
+          </a>
+          <% }) %>
+            <% } %>
     </article>
   </main>
 
