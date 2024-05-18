@@ -2,43 +2,16 @@
 
   <main class="post-main">
     <header>
-      <h1>Will AI Replace All Coders?</h1>
-      <h2>Will AI take over all coding?</h2>
+      <h1><%= post.title %></h1>
+      <h2><%= post.subtitle %></h2>
       <div class="author-date">
-        <span class="author">By Peter Diamandis</span>
-        <span class="date">Jan 01, 2024</span>
+        <span class="author"><%= post.author %></span>
+        <span class="date"><%= new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric' , month: 'long' ,
+          day: 'numeric' }) %></span>
       </div>
     </header>
     <article>
-      <p>
-        During last year’s Abundance Summit, Emad Mostaque, CEO of Stability
-        AI, made the statement that we would have “no more humans coding in 5
-        years.” Should we embrace this as inevitable and tell our kids they no
-        longer need to learn to code? There’s strong evidence that AI has
-        already surpassed the ability of human coders, let’s look at three
-        datapoints: 1. In early 2023, OpenAI’s ChatGPT passed Google’s exam
-        for high-level software developers. 2. Later in 2023, GitHub reported
-        that 46% of code across all programming languages is built using
-        Copilot, the company’s AI-powered developer tool. 3. Finally,
-        DeepMind’s AlphaCode in its debut outperformed human programmers. When
-        pitted against over 5,000 human participants, the AI beat 45% of
-        expert programmers. Given that all these developments took place
-        within the first year of ChatGPT’s release, what is likely to happen
-        over the next two or three years as the tech advances even further?
-        Will AI eliminate the need for human programmers altogether later this
-        decade? Or, perhaps, rather than eliminate coders, will generative AI
-        allow any and all of us to become coders? In today’s blog, I want to
-        paint a more hopeful and compelling picture of the future — one that
-        flips our perspective from scarcity to abundance. A future in which
-        more people than ever will be able to leverage the power of coding to
-        solve important problems and uplift humanity. Let’s dive in… NOTE: At
-        next month’s 2024 Abundance Summit, we’ll have Nat Friedman (Former
-        CEO, GitHub); Mustafa Suleyman (Co-Founder, DeepMind; CEO, Inflection
-        AI); Emad Mustaque (CEO, Stability AI); Eric Schmidt (Former CEO &
-        Chairman, Google); Ray Kurzweil (Google) and many more AI leaders
-        discussing this topic of “AI and coding” and its ability to turn us
-        all into coders in the near future.
-      </p>
+      <p><%= post.content %></p>
     </article>
     <div class="interactions">
       <button class="btn" aria-label="Clap for this post">👏 Clap</button>
