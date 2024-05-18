@@ -293,6 +293,13 @@ a.blog-link:hover {
   margin: 0 auto;
 }
 
+.check-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .section {
   width: 100%;
   height: 40vh;
