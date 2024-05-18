@@ -31,16 +31,6 @@ const open_archive = async (request, response) => {
 // write functions
 const Post = require("../model/post");
 
-const get_post = (request, response) => {
-  Post.find({})
-    .then((data) => {
-      response.send(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 const add_post = (request, response) => {
   const errors = validationResult(request);
   if (!errors.isEmpty()) {
@@ -111,6 +101,16 @@ const delete_post = (request, response) => {
 };
 
 // read functions
+const get_post = (request, response) => {
+  Post.find({})
+    .then((data) => {
+      response.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 const get_post_by_id = (request, response) => {
   Post.findById(params.body.id)
     .then((data) => {

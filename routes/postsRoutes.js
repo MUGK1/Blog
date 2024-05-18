@@ -13,9 +13,6 @@ router.get(
 );
 router.get("/archive", authMiddleware.isAuth, postsController.open_archive);
 
-// Read routes
-router.get("/api/post", postsController.get_post);
-
 // write routes
 router.post(
   "/api/post",
@@ -41,8 +38,11 @@ router.put(
   postsController.update_post
 );
 
-router.get("/api/getSearchTable", postsController.find_posts);
-
 router.delete("/api/post/:id", postsController.delete_post);
+
+// read routes
+router.get("/api/post", postsController.get_post);
+
+router.get("/api/getSearchTable", postsController.find_posts);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const User = require("../model/user");
 
+// Open web pages routes
 const open_index = async (request, response) => {
   try {
     const posts = await fetch(`http://localhost:3000/api/post`);
@@ -30,20 +31,21 @@ const open_login = async (request, response) => {
   });
 };
 
+// Auth endpoints
 const post_login = async (request, response) => {
   const { email, password } = request.body;
 
   const user = await User.findOne({ email: email });
 
   if (!user) {
-    request.session.error = "Invalid Credentials 1" + " " + email;
+    request.session.error = "Invalid Credentials";
     return response.redirect("/login");
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
 
   if (!isMatch) {
-    request.session.error = "Invalid Credentials 2";
+    request.session.error = "Invalid Credentials";
     return response.redirect("/login");
   }
 
@@ -54,7 +56,7 @@ const post_login = async (request, response) => {
   response.redirect("/");
 };
 
-const post_logout = (request, response) => {
+const get_logout = (request, response) => {
   request.session.destroy((err) => {
     if (err) throw err;
     response.redirect("/login");
@@ -65,5 +67,5 @@ module.exports = {
   open_index,
   open_login,
   post_login,
-  post_logout,
+  get_logout,
 };
