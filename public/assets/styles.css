@@ -212,16 +212,17 @@ a {
   border: transparent 1px;
   border-radius: 25px;
   font-size: 16px;
-  width: 50%;
-  margin-top: 3rem;
+  width: 70%;
+  margin: 1rem auto 0 auto;
 }
 
 .search-archive {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 70%;
   gap: 10px;
-  margin: 10px 0;
+  margin: 10px auto;
 }
 
 #search-results-table {
@@ -637,8 +638,12 @@ article > h1 {
 }
 
 .user-post {
-  width: 90%;
+  margin-top: 10px;
+  width: 100%;
+  word-wrap: break-word;
 }
+
+
 
 .main-post {
   line-height: 1.6;
