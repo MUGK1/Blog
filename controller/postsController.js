@@ -24,12 +24,27 @@ const open_archive = async (request, response) => {
     });
   } catch {
     console.error("error fetching posts");
-    response.render("Archive", { title: "Archive", posts: [] });
+    response.render("archive", { title: "Archive", posts: [] });
   }
 };
 
+const view_post = (request, response) => {
+    Post.findById(request.params.id)
+      .then((data) => {
+        response.render("post", {
+          title: data.title, 
+          isAuth: request.session.isAuth,
+          post: data,
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+}
+
 // write functions
 const Post = require("../model/post");
+const { isAuth } = require("../middleware/auth");
 
 const add_post = (request, response) => {
   const errors = validationResult(request);
@@ -88,15 +103,6 @@ const get_post = (request, response) => {
     });
 };
 
-const get_post_by_id = (request, response) => {
-  Post.findById(params.body.id)
-    .then((data) => {
-      response.send(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
 
 const find_posts = (request, response) => {
   let input = request.query.searchInput;
@@ -133,6 +139,6 @@ module.exports = {
   add_post,
   get_post,
   delete_post,
-  get_post_by_id,
   find_posts,
+  view_post,
 };
