@@ -90,11 +90,16 @@ const delete_post = (request, response) => {
 
   Post.findByIdAndDelete(id)
     .then((result) => {
-      console.log(`Post deleted from database: id -> ${result._id}`);
-      response.redirect("/archive");
+      if (result) {
+        console.log(`Post deleted from database: id -> ${result._id}`);
+        response.status(200).json({ message: "Post deleted successfully." });
+      } else {
+        response.status(404).json({ message: "Post not found." });
+      }
     })
     .catch((err) => {
-      console.log(err);
+      console.error("Error deleting post:", err);
+      response.status(500).json({ message: "Failed to delete the post." });
     });
 };
 
