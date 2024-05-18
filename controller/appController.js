@@ -1,63 +1,63 @@
 const bcrypt = require("bcryptjs");
 const User = require("../model/user");
 
-const open_index = async (req, res) => {
+const open_index = async (request, response) => {
   try {
     const posts = await fetch(`http://localhost:3000/api/post`);
     const data = await posts.json();
-    res.render("index", {
+    response.render("index", {
       title: "Home",
-      isAuth: req.session.isAuth,
+      isAuth: request.session.isAuth,
       posts: data,
     });
   } catch (error) {
     console.error("Error fetching posts:", error);
-    res.render("index", {
+    response.render("index", {
       title: "Home",
-      isAuth: req.session.isAuth,
+      isAuth: request.session.isAuth,
       posts: [],
     });
   }
 };
 
-const open_login = async (req, res) => {
-  const error = req.session.error;
-  req.session.error = undefined;
-  res.render("login", {
+const open_login = async (request, response) => {
+  const error = request.session.error;
+  request.session.error = undefined;
+  response.render("login", {
     title: "Login",
-    isAuth: req.session.isAuth,
+    isAuth: request.session.isAuth,
     message: error,
   });
 };
 
-const post_login = async (req, res) => {
-  const { email, password } = req.body;
+const post_login = async (request, response) => {
+  const { email, password } = request.body;
 
   const user = await User.findOne({ email: email });
 
   if (!user) {
-    req.session.error = "Invalid Credentials 1" + " " + email;
-    return res.redirect("/login");
+    request.session.error = "Invalid Credentials 1" + " " + email;
+    return response.redirect("/login");
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
 
   if (!isMatch) {
-    req.session.error = "Invalid Credentials 2";
-    return res.redirect("/login");
+    request.session.error = "Invalid Credentials 2";
+    return response.redirect("/login");
   }
 
-  req.session.isAuth = true;
-  req.session.username = user.username;
+  request.session.isAuth = true;
+  request.session.username = user.username;
 
-  console.log(req.session);
-  res.redirect("/");
+  console.log(request.session);
+  response.redirect("/");
 };
 
-const post_logout = (req, res) => {
-  req.session.destroy((err) => {
+const post_logout = (request, response) => {
+  request.session.destroy((err) => {
     if (err) throw err;
-    res.redirect("/login");
+    response.redirect("/login");
   });
 };
 

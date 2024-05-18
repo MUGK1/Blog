@@ -1,15 +1,15 @@
-const isAuth = (req, res, next) => {
-  if (req.session.isAuth) {
+const isAuth = (request, response, next) => {
+  if (request.session.isAuth) {
     next();
   } else {
-    req.session.error = "You have to Login first";
-    res.redirect("/login");
+    request.session.error = "You have to Login first";
+    response.redirect("/login");
   }
 };
 
-const isLogged = (req, res, next) => {
-  if (req.session.isAuth) {
-    res.redirect("/");
+const isLogged = (request, response, next) => {
+  if (request.session.isAuth) {
+    response.redirect("/");
   } else {
     next();
   }
