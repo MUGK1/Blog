@@ -8,7 +8,14 @@
           Discover stories, thinking, and expertise <br />
           from writers on any topic.
         </p>
+        <% if(!isAuth) { %>
+        <div class="check-btn">
         <a href="login">Login</a>
+        <a href="register">Register</a>
+        </div>
+        <% } else { %>
+        <a href="post-editor">Write a Post</a>
+        <% } %>
       </div>
     </section>
     <article class="container">
